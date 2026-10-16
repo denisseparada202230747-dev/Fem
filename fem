@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Voces Tejidas — Revista Feminista</title>
+<style>
+  :root {
+    --violeta-suave: #b8a4d4;
+    --violeta-medio: #9b7fc7;
+    --violeta-profundo: #7a5fa8;
+    --lavanda: #e8def5;
+    --lavanda-claro: #f5effa;
+    --lila: #d4c5e8;
+    --rosa-polvo: #e8c4d4;
+    --menta-suave: #c4e0d4;
+    --crema: #faf7fc;
+    --texto: #3d2f52;
+    --texto-suave: #6b5b82;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: var(--crema);
+    color: var(--texto);
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, var(--lavanda) 0%, var(--lila) 50%, var(--rosa-polvo) 100%);
+    padding: 60px 20px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: "";
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+    animation: girar 30s linear infinite;
+  }
+
+  @keyframes girar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .logo {
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo h1 {
+    font-size: 4rem;
+    font-weight: normal;
+    letter-spacing: 8px;
+    color: var(--violeta-profundo);
+    text-shadow: 2px 2px 0 rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+  }
+
+  .logo .subtitulo {
+    font-style: italic;
+    color: var(--texto-suave);
+    letter-spacing: 3px;
+    font-size: 1rem;
+  }
+
+  .edicion {
+    margin-top: 20px;
+    display: inline-block;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--violeta-profundo);
+    text-transform: uppercase;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--violeta-medio);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(122, 95, 168, 0.2);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 18px 24px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background 0.3s;
+  }
+
+  nav a:hover {
+    background: var(--violeta-profundo);
+  }
+
+  /* CONTENEDOR */
+  .contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  /* PORTADA / FEATURE */
+  .portada {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: center;
+    background: var(--lavanda-claro);
+    border-radius: 20px;
+    padding: 40px;
+    border-left: 6px solid var(--violeta-medio);
+  }
+
+  .portada-texto h2 {
+    font-size: 2.5rem;
+    color: var(--violeta-profundo);
+    margin-bottom: 20px;
+    font-weight: normal;
+    line-height: 1.2;
+  }
+
+  .portada-texto .categoria {
+    display: inline-block;
+    background: var(--rosa-polvo);
+    color: var(--texto);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+  .portada-texto p {
+    color: var(--texto-suave);
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+  }
+
+  .portada-imagen {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--lila), var(--rosa-polvo), var(--menta-suave));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    animation: flotar 4s ease-in-out infinite;
+  }
+
+  @keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  /* SECCIONES */
+  .seccion-titulo {
+    text-align: center;
+    margin: 60px 0 40px;
+    position: relative;
+  }
+
+  .seccion-titulo h3 {
+    font-size: 2rem;
+    color: var(--violeta-profundo);
+    font-weight: normal;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0 20px;
+    background: var(--crema);
+    position: relative;
+    z-index: 2;
+  }
+
+  .seccion-titulo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--lila);
+    z-index: 1;
+  }
+
+  /* GRID ARTÍCULOS */
+  .grid-articulos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .articulo {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(155, 127, 199, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 4px solid var(--violeta-suave);
+  }
+
+  .articulo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(155, 127, 199, 0.25);
+  }
+
+  .articulo .tag {
+    display: inline-block;
+    background: var(--lavanda);
+    color: var(--violeta-profundo);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+  .articulo h4 {
+    font-size: 1.4rem;
+    color: var(--violeta-profundo);
+    margin-bottom: 12px;
+    font-weight: normal;
+    line-height: 1.3;
+  }
+
+  .articulo p {
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+
+  .articulo .autor {
+    font-size: 0.8rem;
+    color: var(--violeta-medio);
+    font-style: italic;
+    border-top: 1px solid var(--lavanda);
+    padding-top: 12px;
+  }
+
+  /* CITA DESTACADA */
+  .cita {
+    background: linear-gradient(135deg, var(--lila), var(--rosa-polvo));
+    border-radius: 20px;
+    padding: 60px 40px;
+    text-align: center;
+    margin: 60px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cita::before {
+    content: """;
+    position: absolute;
+    top: -30px;
+    left: 30px;
+    font-size: 12rem;
+    color: rgba(255,255,255,0.4);
+    font-family: Georgia;
+    line-height: 1;
+  }
+
+  .cita blockquote {
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--violeta-profundo);
+    position: relative;
+    z-index: 2;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cita cite {
+    display: block;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-style: normal;
+    color: var(--texto);
+  }
+
+  /* COLUMNA DESTACADA */
+  .destacado {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    background: var(--lavanda-claro);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px 0;
+  }
+
+  .destacado-imagen {
+    aspect-ratio: 4/3;
+    background: linear-gradient(45deg, var(--menta-suave), var(--lila));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+  }
+
+  .destacado-texto h4 {
+    font-size: 1.8rem;
+    color: var(--violeta-profundo);
+    margin-bottom: 15px;
+    font-weight: normal;
+  }
+
+  .destacado-texto p {
+    color: var(--texto-suave);
+    margin-bottom: 15px;
+  }
+
+  /* BOTÓN */
+  .btn {
+    display: inline-block;
+    background: var(--violeta-medio);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background: var(--violeta-profundo);
+    transform: scale(1.05);
+  }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: var(--violeta-medio);
+    color: white;
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    margin: 60px 0 40px;
+  }
+
+  .newsletter h4 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+  }
+
+  .newsletter p {
+    margin-bottom: 25px;
+    opacity: 0.9;
+  }
+
+  .newsletter form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .newsletter input {
+    flex: 1;
+    min-width: 200px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+  }
+
+  .newsletter button {
+    background: var(--rosa-polvo);
+    color: var(--texto);
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .newsletter button:hover {
+    background: white;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--violeta-profundo);
+    color: var(--lavanda);
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+  }
+
+  footer .redes {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    letter-spacing: 15px;
+  }
+
+  footer p {
+    opacity: 0.8;
+    margin-bottom: 8px;
+  }
+
+  footer .lema {
+    font-style: italic;
+    color: var(--rosa-polvo);
+    margin-top: 20px;
+    letter-spacing: 3px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .logo h1 { font-size: 2.5rem; letter-spacing: 4px; }
+    .portada, .destacado { grid-template-columns: 1fr; }
+    .cita blockquote { font-size: 1.2rem; }
+    nav a { padding: 14px 16px; font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <h1>VOCES TEJIDAS</h1>
+    <p class="subtitulo">revista feminista · palabras que transforman</p>
+    <span class="edicion">Edición Nº 12 · Primavera 2025</span>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#">Inicio</a></li>
+    <li><a href="#">Cuerpo</a></li>
+    <li><a href="#">Cultura</a></li>
+    <li><a href="#">Política</a></li>
+    <li><a href="#">Arte</a></li>
+    <li><a href="#">Comunidad</a></li>
+  </ul>
+</nav>
+
+<main class="contenedor">
+
+  <!-- PORTADA -->
+  <section class="portada">
+    <div class="portada-texto">
+      <span class="categoria">Editorial</span>
+      <h2>Tejer redes,<br>sembrar futuros</h2>
+      <p>En tiempos de ruido, elegimos la escucha. En tiempos de prisa, elegimos el cuidado. Esta edición celebra las formas cotidianas en que las mujeres construyen mundos posibles, hilo por hilo, gesto por gesto.</p>
+      <a href="#" class="btn">Leer editorial</a>
+    </div>
+    <div class="portada-imagen">✿</div>
+  </section>
+
+  <!-- ARTÍCULOS -->
+  <div class="seccion-titulo">
+    <h3>Voces</h3>
+  </div>
+
+  <section class="grid-articulos">
+    <article class="articulo">
+      <span class="tag">Cuerpo</span>
+      <h4>El derecho a decidir sobre nuestra piel</h4>
+      <p>Reflexiones sobre autonomía corporal, belleza y las narrativas que aún necesitamos desaprender colectivamente.</p>
+      <div class="autor">— Ana Lucía Márquez</div>
+    </article>
+
+    <article class="articulo">
+      <span class="tag">Cultura</span>
+      <h4>Escritoras olvidadas que cambiaron la literatura</h4>
+      <p>Un recorrido por voces que el canon silenció y que hoy rescatamos con urgencia y gratitud.</p>
+      <div class="autor">— Carmen Solís</div>
+    </article>
+
+    <article class="articulo">
+      <span class="tag">Política</span>
+      <h4>Parir el mundo en común</h4>
+      <p>Sobre cuidados, economía feminista y por qué sostener la vida debería ser el centro de toda agenda pública.</p>
+      <div class="autor">— Valentina Ríos</div>
+    </article>
+
+    <article class="articulo">
+      <span class="tag">Arte</span>
+      <h4>Bordar la memoria, sanar el presente</h4>
+      <p>Colectivos de bordadoras que transforman el dolor en tela y convierten la aguja en herramienta política.</p>
+      <div class="autor">— Lucía Fernández</div>
+    </article>
+
+    <article class="articulo">
+      <span class="tag">Comunidad</span>
+      <h4>Redes de apoyo entre mujeres mayores</h4>
+      <p>Historias de vecinas que se sostienen, se cuidan y reinventan la vejez desde la ternura y la rebeldía.</p>
+      <div class="autor">— Rosa Delgado</div>
+    </article>
+
+    <article class="articulo">
+      <span class="tag">Reflexión</span>
+      <h4>La ternura como acto radical</h4>
+      <p>Frente a un mundo que premia la dureza, cuidar se vuelve gesto insurgente. Una invitación a la suavidad política.</p>
+      <div class="autor">— Mariana Ortega</div>
+    </article>
+  </section>
+
+  <!-- CITA -->
+  <section class="cita">
+    <blockquote>
+      "No estoy aceptando las cosas que no puedo cambiar. Estoy cambiando las cosas que no puedo aceptar."
+    </blockquote>
+    <cite>— Angela Davis</cite>
+  </section>
+
+  <!-- DESTACADO -->
+  <div class="seccion-titulo">
+    <h3>Destacado</h3>
+  </div>
+
+  <section class="destacado">
+    <div class="destacado-imagen">🌿</div>
+    <div class="destacado-texto">
+      <span class="categoria">Entrevista</span>
+      <h4>Sanar en colectivo: la salud mental con perspectiva de género</h4>
+      <p>Conversamos con psicólogas y activistas sobre cómo los mandatos de género atraviesan nuestro bienestar emocional, y sobre las prácticas comunitarias que nos devuelven la calma.</p>
+      <a href="#" class="btn">Leer entrevista</a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h4>Únete a nuestra comunidad</h4>
+    <p>Recibe cada mes reflexiones, lecturas y voces que tejen otros mundos posibles.</p>
+    <form onsubmit="event.preventDefault(); alert('¡Gracias por unirte a Voces Tejidas!');">
+      <input type="email" placeholder="tu correo electrónico" required>
+      <button type="submit">Suscribirme</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <div class="redes">✿ ❀ ✾</div>
+  <p><strong>VOCES TEJIDAS</strong> · Revista feminista independiente</p>
+  <p>Hecha por y para mujeres, con amor y rebeldía</p>
+  <p class="lema">"Lo personal es político, y lo colectivo es sanador"</p>
+</footer>
+
+</body>
+</html>
